@@ -1,0 +1,27 @@
+#!/bin/bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+if [ $(uname) == Darwin ]; then
+    sed() { command sed -l "$@"; }
+else
+    sed() { command sed -u "$@"; }
+fi
+
+indent() {
+  sed "s/^/       /"
+}
+
+echo "-----> Found .nar_release file"
+
+url=$(head -n 1 $1/.nar_release)
+
+if [ -z $url ]; then 
+  echo "Error: missing URL to provision" | indent
+  exit 1
+fi
+
+echo "Provisioning $url" | indent
+
+# Download the binary
+curl -L --max-time 60 --silent -o $1/app.nar $url
+exit $?

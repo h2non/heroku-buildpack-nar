@@ -1,0 +1,8 @@
+#!/bin/sh
+# bin/release <build-dir>
+
+cat <<EOF
+---
+default_process_types:
+  web: sh $1/app.nar extract -o $1
+EOF
