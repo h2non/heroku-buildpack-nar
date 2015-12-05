@@ -1,6 +1,6 @@
 # heroku-buildpack-nar
 
-[Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) to easily deploy and run nar app containers.
+[Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) to easily deploy and run [nar](https://github.com/h2non/nar) app containers.
 
 ## Usage
 
